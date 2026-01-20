@@ -1,13 +1,13 @@
-let nombre = prompt('Cual es tu nombre?');//aqui pido datos por consola al usuario
-console.log(nombre);
+// let nombre = prompt('Cual es tu nombre?');//aqui pido datos por consola al usuario
 
 let saldoUsuario;
+let productoSeleccionado;
 console.log(saldoUsuario);
 
 const productos = [ //aqui estoy creando una lista en JS
     {//aqui voy a crear los objetos que pueden ser persona con atributo hijos,edad, etc
         id:1,
-        nombre:'Play 4',
+        nombre:'play 4',
         valor:800000,
         porcentajeImpuesto:5,
     },
@@ -28,17 +28,41 @@ const productos = [ //aqui estoy creando una lista en JS
         porcentajeImpuesto:5
     }
 
-
-
 ]
-console.log(productos);
 
  saldoUsuario = Number(prompt('Ingrese su saldo inicial'));//aqui estoy convirtiendo el numero que ingresa el suario de string a numero
+ let idProducto = Number(prompt(`
+    id: ${productos[0].id} ${productos[0].nombre} -> ${productos[0].valor}
+    Que deseas comprar, digite el id
+    `));
+//  coo acceder a los elementos de un arreglo
 
- let comprar = prompt('Que deseas comprar');
- console.log(comprar);
+// console.log(productos[0]);
+
+// console.log(`hola como estas como vas todo bien ${comprar} ${productos[0].nombre} `);
+
+//  console.log(comprar);
+
+for (let index = 0; index < productos.length; index++) {
+    // 1 vuelta index = 0
+    // TAREAAAAA
+    // diferencia entre 3 ifguales y 2
+    if (idProducto === productos[index].id) {
+        productoSeleccionado = productos[index]
+    }
+}
+
+console.log(productoSeleccionado);
+
+// CALCULAR EL IMPUESTO
+// RESTARLE EL VALOR TOTAL AL SALDO INICIAL
+// IMPRIMIR EN CONSOLA GRACIAS PÓR LA COMPRA ESTE ES EL VALOR DEL PRODUCTO 
+// Y ESTE ES SU SALDO FINAL
+// USANDO TEMPLATE STRINGS
+
+
 
  //vamos hacer un recorrido a la ray para ver que eligio el usuario usamos find para que busque lo que el usuario eligio
- let productoElegido = productos.find(
-  p => p.nombre.toLowerCase() === comprar.toLowerCase()
-);
+//  let productoElegido = productos.find(
+//   p => p.nombre.toLowerCase() === comprar.toLowerCase()
+// );
