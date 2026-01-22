@@ -50,6 +50,8 @@ let productoEncontrado = productos [productoSeleccionado - 1];//esta linea la la
 let valorDelImpuesto = (productoSeleccionado.valor * productoSeleccionado.porcentajeImpuesto)/100;
 console.log("El valor del impuesto es: $" + valorDelImpuesto);
 
+//no se como imprimir el valor del impuesto
+
 
 // CALCULAR EL IMPUESTO
 // RESTARLE EL VALOR TOTAL AL SALDO INICIAL
