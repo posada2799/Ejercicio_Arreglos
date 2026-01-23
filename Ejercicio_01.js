@@ -43,13 +43,16 @@ for (let i = 0; i < productos.length; i++){
 
 //Fuera del for, pedimos el ID al usuario usando la lista que armamos
 let productoSeleccionado = Number(prompt(listaParamostrar + "  Digite el ID del producto: "));
-console.log("Seleccionaste el ID: " + productoSeleccionado);
-
 let productoEncontrado = productos [productoSeleccionado - 1];//esta linea la la auorelleno VSCode
+console.log("Seleccionaste el ID: " + productoEncontrado.nombre);
 
-let valorDelImpuesto = (productoSeleccionado.valor * productoSeleccionado.porcentajeImpuesto)/100;
+
+let valorDelImpuesto = (productoEncontrado.valor * productoEncontrado.porcentajeImpuesto)/100;
 console.log("El valor del impuesto es: $" + valorDelImpuesto);
 
+//desde esta linea VSC ode me la autolleno
+let valorTotal = productoEncontrado.valor + valorDelImpuesto;
+console.log("El valor total del producto es: $" + valorTotal);
 //no se como imprimir el valor del impuesto
 
 
