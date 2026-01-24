@@ -1,14 +1,15 @@
 // let nombre = prompt('Cual es tu nombre?');//aqui pido datos por consola al usuario
 
 let saldoUsuario;
-let productoSeleccionado;
 console.log(saldoUsuario);
+const iva = 0.21; 
 
 const productos = [ //aqui estoy creando una lista en JS
     {//aqui voy a crear los objetos que pueden ser persona con atributo hijos,edad, etc
         id:1,
         nombre:'play 4',
         valor:800000,
+
         porcentajeImpuesto:5,
     },
 
@@ -17,7 +18,8 @@ const productos = [ //aqui estoy creando una lista en JS
         nombre:'PSP 3000',
         valor:300000,
 
-        porcentajeImpuesto:2
+    
+        porcentajeImpuesto:2,
 
     },
 
@@ -25,34 +27,31 @@ const productos = [ //aqui estoy creando una lista en JS
         id:3,
         nombre:'Play 5',
         valor:1500000,
-        porcentajeImpuesto:5
+
+        porcentajeImpuesto:5,
     }
 
 ]
+saldoUsuario = Number(prompt('Ingrese su saldo inicial'));//aqui estoy convirtiendo el numero que ingresa el suario de string a numero
+//creamos una variable para que el usuario vea el texto de la lista
+let listaParamostrar = "-----Productos Disponibles-----";//siempre debemos crear una variable para que for recorra
 
- saldoUsuario = Number(prompt('Ingrese su saldo inicial'));//aqui estoy convirtiendo el numero que ingresa el suario de string a numero
- let idProducto = Number(prompt(`
-    id: ${productos[0].id} ${productos[0].nombre} -> ${productos[0].valor}
-    Que deseas comprar, digite el id
-    `));
-//  coo acceder a los elementos de un arreglo
-
-// console.log(productos[0]);
-
-// console.log(`hola como estas como vas todo bien ${comprar} ${productos[0].nombre} `);
-
-//  console.log(comprar);
-
-for (let index = 0; index < productos.length; index++) {
-    // 1 vuelta index = 0
-    // TAREAAAAA
-    // diferencia entre 3 ifguales y 2
-    if (idProducto === productos[index].id) {
-        productoSeleccionado = productos[index]
-    }
+//Usamos el ciclo FOR para recorrer el arreglo y "armar" la lista
+for (let i = 0; i < productos.length; i++){
+    listaParamostrar = listaParamostrar + ` ID: ${productos[i].id} - ${productos[i].nombre} -> $${productos[i].valor}`;
 }
 
-console.log(productoSeleccionado);
+//Fuera del for, pedimos el ID al usuario usando la lista que armamos
+let productoSeleccionado = Number(prompt(listaParamostrar + "  Digite el ID del producto: "));
+console.log("Seleccionaste el ID: " + productoSeleccionado);
+
+let productoEncontrado = productos [productoSeleccionado - 1];//esta linea la la auorelleno VSCode
+
+let valorDelImpuesto = (productoSeleccionado.valor * productoSeleccionado.porcentajeImpuesto)/100;
+console.log("El valor del impuesto es: $" + valorDelImpuesto);
+
+//no se como imprimir el valor del impuesto
+
 
 // CALCULAR EL IMPUESTO
 // RESTARLE EL VALOR TOTAL AL SALDO INICIAL
