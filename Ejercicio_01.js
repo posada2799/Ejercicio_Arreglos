@@ -1,7 +1,8 @@
 // let nombre = prompt('Cual es tu nombre?');//aqui pido datos por consola al usuario
 
+// que necesito que tengo que crear
+
 let saldoUsuario;
-console.log(saldoUsuario);
 const iva = 0.21; 
 
 const productos = [ //aqui estoy creando una lista en JS
@@ -18,13 +19,12 @@ const productos = [ //aqui estoy creando una lista en JS
         nombre:'PSP 3000',
         valor:300000,
 
-    
         porcentajeImpuesto:2,
 
     },
 
     {
-        id:3,
+        id:30,
         nombre:'Play 5',
         valor:1500000,
 
@@ -36,22 +36,46 @@ saldoUsuario = Number(prompt('Ingrese su saldo inicial'));//aqui estoy convirtie
 //creamos una variable para que el usuario vea el texto de la lista
 let listaParamostrar = "-----Productos Disponibles-----";//siempre debemos crear una variable para que for recorra
 
+
 //Usamos el ciclo FOR para recorrer el arreglo y "armar" la lista
 for (let i = 0; i < productos.length; i++){
     listaParamostrar = listaParamostrar + ` ID: ${productos[i].id} - ${productos[i].nombre} -> $${productos[i].valor}`;
 }
 
 //Fuera del for, pedimos el ID al usuario usando la lista que armamos
-let productoSeleccionado = Number(prompt(listaParamostrar + "  Digite el ID del producto: "));
-console.log("Seleccionaste el ID: " + productoSeleccionado);
+let idSeleccionado = Number(prompt(listaParamostrar + "  Digite el ID del producto: "));
+//let productoEncontrado = productos[productoSeleccionado - 1];//esta linea la la auorelleno VSCode
+let productoSeleccionado;
 
-let productoEncontrado = productos [productoSeleccionado - 1];//esta linea la la auorelleno VSCode
+for (let i =0; i<productos.length; i++){
+    const producto = productos[i]
+    //flujos de control
+    if (producto.id === idSeleccionado) {
+        console.log(producto);
+        productoSeleccionado = producto;
+        //break --- romper el flujo de control
+        //continue --- corta la vuelta o iteracion y continua con la otra
+    }
+    console.log(`hola como estas`);
+    
+}
+
+console.log("Seleccionaste el ID: " + productoSeleccionado.nombre);
+
 
 let valorDelImpuesto = (productoSeleccionado.valor * productoSeleccionado.porcentajeImpuesto)/100;
 console.log("El valor del impuesto es: $" + valorDelImpuesto);
 
+//desde esta linea VSC ode me la autolleno
+let valorTotal = productoSeleccionado.valor + valorDelImpuesto;
+console.log("El valor total del producto es: $" + valorTotal);
 //no se como imprimir el valor del impuesto
 
+saldoUsuario = saldoUsuario - valorTotal;
+console.log(saldoUsuario);
+
+console.log(`gshdgfsgdhsdghdsg ${saldoUsuario}`);
+console.log(`gshdgfsgdhsdghdsg ${productoSeleccionado.nombre} ${valorTotal}`);
 
 // CALCULAR EL IMPUESTO
 // RESTARLE EL VALOR TOTAL AL SALDO INICIAL
